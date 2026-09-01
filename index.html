@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header class="header">
+            <div>
+                <div class="logo">✦ NOVA HUB</div>
+                <div class="subtitle">Твой маленький мир</div>
+            </div>
+
+            <div class="avatar">N</div>
+        </header>
+
+
+        <main>
+
+            <section class="welcome">
+                <p class="hello">Добро пожаловать 👋</p>
+                <h1>Готов начать?</h1>
+                <p class="description">
+                    Исследуй приложение и открывай новые возможности.
+                </p>
+            </section>
+
+
+            <section class="profile-card">
+
+                <div class="profile-avatar">
+                    N
+                </div>
+
+                <div class="profile-info">
+                    <span>Профиль</span>
+                    <strong>Новый пользователь</strong>
+                    <small>⭐ 0 XP</small>
+                </div>
+
+                <button class="arrow">›</button>
+
+            </section>
+
+
+            <section class="cards">
+
+                <button class="menu-card" onclick="showMessage('Игры')">
+                    <div class="card-icon">🎮</div>
+                    <strong>Игры</strong>
+                    <span>Мини-игры</span>
+                </button>
+
+                <button class="menu-card" onclick="showMessage('Музыка')">
+                    <div class="card-icon">🎵</div>
+                    <strong>Музыка</strong>
+                    <span>Твои треки</span>
+                </button>
+
+            </section>
+
+
+            <button class="start-button" onclick="startApp()">
+                <span>🚀</span>
+                Начать
+            </button>
+
+        </main>
+
+
+        <footer>
+            Nova Hub • v1.0
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

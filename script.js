@@ -172,3 +172,100 @@ function loadProfile() {
 
 
 loadProfile();
+// ==============================
+// XP SYSTEM
+// ==============================
+
+let xp = Number(localStorage.getItem("nova_xp")) || 0;
+
+let level = Number(localStorage.getItem("nova_level")) || 1;
+
+
+function updateXP() {
+
+    const xpNeeded = level * 100;
+
+    const progress =
+        Math.min((xp / xpNeeded) * 100, 100);
+
+
+    const xpElement =
+        document.getElementById("profile-xp");
+
+    if (xpElement) {
+        xpElement.textContent = xp;
+    }
+
+
+    const progressBar =
+        document.querySelector(".progress-bar");
+
+    if (progressBar) {
+        progressBar.style.width = `${progress}%`;
+    }
+
+
+    const levelText =
+        document.querySelector(".level-header span");
+
+    if (levelText) {
+        levelText.textContent =
+            `🏆 Уровень ${level}`;
+    }
+
+
+    const progressText =
+        document.querySelector(".level-header span:nth-child(2)");
+
+    if (progressText) {
+        progressText.textContent =
+            `${xp} / ${xpNeeded} XP`;
+    }
+
+
+    const levelStat =
+        document.querySelector(".stat-card:nth-child(2) strong");
+
+    if (levelStat) {
+        levelStat.textContent = level;
+    }
+
+}
+
+
+function addXP(amount) {
+
+    xp += amount;
+
+
+    while (xp >= level * 100) {
+
+        xp -= level * 100;
+
+        level++;
+
+        alert(
+            `🎉 Новый уровень!\n\nТы достиг уровня ${level}!`
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "nova_xp",
+        xp
+    );
+
+
+    localStorage.setItem(
+        "nova_level",
+        level
+    );
+
+
+    updateXP();
+
+}
+
+
+updateXP();

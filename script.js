@@ -101,3 +101,74 @@ function startApp() {
 
 
 loadUser();
+function openProfile() {
+
+    const profileScreen = document.getElementById("profile-screen");
+
+    profileScreen.classList.add("active");
+
+}
+
+
+function closeProfile() {
+
+    const profileScreen = document.getElementById("profile-screen");
+
+    profileScreen.classList.remove("active");
+
+}
+
+
+function loadProfile() {
+
+    if (!user) {
+        return;
+    }
+
+    const fullName =
+        `${user.first_name || ""} ${user.last_name || ""}`.trim();
+
+    const username =
+        user.username
+            ? `@${user.username}`
+            : "Username не указан";
+
+
+    document.getElementById("profile-name").textContent =
+        fullName || "Пользователь";
+
+
+    document.getElementById("profile-username").textContent =
+        username;
+
+
+    document.getElementById("profile-id").textContent =
+        user.id;
+
+
+    const bigAvatar =
+        document.querySelector(".big-avatar");
+
+
+    if (user.photo_url) {
+
+        bigAvatar.innerHTML = `
+            <img
+                src="${user.photo_url}"
+                alt="Avatar"
+            >
+        `;
+
+    } else {
+
+        bigAvatar.textContent =
+            (user.first_name || "U")
+            .charAt(0)
+            .toUpperCase();
+
+    }
+
+}
+
+
+loadProfile();
